@@ -7,7 +7,7 @@ import Chart from '../ui/dashboard/chart/Chart';
 
 const Dashboard = () => {
   return (
-    <Flex gap={10} mt={3}>
+    <Flex gap={3} mt={3}>
       <Flex flex={3} flexDirection={'column'} gap={3}>
         <Flex gap={3} justify={'space-between'}>
           <Card />

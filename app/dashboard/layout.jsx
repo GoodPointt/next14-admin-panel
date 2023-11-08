@@ -16,7 +16,7 @@ const layout = ({ children }) => {
       >
         <Sidebar />
       </Box>
-      <Box flex={6} p={5}>
+      <Box flex={6} p={3}>
         <Navbar />
         {children}
       </Box>
