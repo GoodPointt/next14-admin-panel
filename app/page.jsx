@@ -1,7 +1,7 @@
-const Homepage = () => {
-  return (
-    <div>Homepage</div>
-  )
-}
+import { Box } from '@chakra-ui/react';
 
-export default Homepage
+const Homepage = () => {
+  return <Box bgColor={'red'}>Homepage</Box>;
+};
+
+export default Homepage;
