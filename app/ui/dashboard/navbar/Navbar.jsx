@@ -36,6 +36,7 @@ const Navbar = () => {
             pl={8}
             border={'none'}
             bgColor={'blackAlpha.200'}
+            fontSize={'xl'}
           />
         </Box>
         <Flex>

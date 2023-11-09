@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../ui/dashboard/navbar/Navbar';
 import Sidebar from '../ui/dashboard/sidebar/Sidebar';
 import { Box, Flex } from '@chakra-ui/react';
+import Footer from '../ui/dashboard/footer/Footer';
 
 const layout = ({ children }) => {
   return (
@@ -19,6 +20,7 @@ const layout = ({ children }) => {
       <Box flex={6} p={3}>
         <Navbar />
         {children}
+        <Footer />
       </Box>
     </Flex>
   );
