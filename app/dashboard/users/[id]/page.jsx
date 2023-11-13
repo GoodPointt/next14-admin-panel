@@ -5,75 +5,91 @@ import {
   FormControl,
   FormLabel,
   Input,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
   Select,
+  Text,
   Textarea,
 } from '@chakra-ui/react';
+import Image from 'next/image';
 
-const AddUserPgae = () => {
+const SingleUserPage = () => {
   return (
-    <Box
-      bg={'linear-gradient(to right, #654ea37e, #5f41a553)'}
-      p={5}
-      borderRadius={'10px'}
-      mt={3}
-    >
+    <Flex gap={'50px'} borderRadius={'10px'} mt={3}>
+      <Box
+        flex={1}
+        bg={'linear-gradient(to right, #654ea37e, #5f41a553)'}
+        p={5}
+        borderRadius={'10px'}
+        h={'max-content'}
+      >
+        <Box
+          w={'100%'}
+          h={'300px'}
+          position={'relative'}
+          borderRadius={'10px'}
+          overflow={'hidden'}
+          mb={4}
+        >
+          <Image src="/noavatar.png" alt="User avatar" fill />
+        </Box>
+        <Text fontWeight={900} fontSize={'xl'}>
+          John Smith
+        </Text>
+      </Box>
       <Flex
+        flex={3}
         as={'form'}
         action={''}
-        wrap={'wrap'}
-        justify={'space-between'}
+        flexDir={'column'}
         gap={3}
+        bg={'linear-gradient(to right, #654ea37e, #5f41a553)'}
+        p={5}
+        borderRadius={'10px'}
       >
-        <FormControl maxW={'45%'}>
+        <FormControl>
           <FormLabel>Username</FormLabel>
           <Input
             type="text"
             name="username"
-            placeholder="Enter username..."
+            placeholder="John Smith"
             border={'none'}
             bgColor={'blackAlpha.200'}
             fontSize={'xl'}
           />
         </FormControl>
-        <FormControl maxW={'45%'}>
+        <FormControl>
           <FormLabel>Email</FormLabel>
           <Input
             type="email"
             name="email"
-            placeholder="Enter email..."
+            placeholder="John.Smith@email.com"
             border={'none'}
             bgColor={'blackAlpha.200'}
             fontSize={'xl'}
           />
         </FormControl>
-        <FormControl maxW={'45%'}>
+        <FormControl>
           <FormLabel>Password</FormLabel>
           <Input
             type="password"
             name="password"
-            placeholder="Enter password..."
+            placeholder="********"
             border={'none'}
             bgColor={'blackAlpha.200'}
             fontSize={'xl'}
           />
         </FormControl>
-        <FormControl maxW={'45%'}>
+        <FormControl>
           <FormLabel>Phone</FormLabel>
           <Input
             type="text"
             name="phone"
-            placeholder="Enter phone number..."
+            placeholder="+12312312312"
             border={'none'}
             bgColor={'blackAlpha.200'}
             fontSize={'xl'}
           />
         </FormControl>
-        <FormControl maxW={'45%'}>
+        <FormControl>
           <FormLabel>Role</FormLabel>
           <Select
             name="role"
@@ -91,7 +107,7 @@ const AddUserPgae = () => {
             <option value="admin">Admin</option>
           </Select>
         </FormControl>
-        <FormControl maxW={'45%'}>
+        <FormControl>
           <FormLabel>Status</FormLabel>
           <Select
             name="status"
@@ -110,12 +126,12 @@ const AddUserPgae = () => {
           </Select>
         </FormControl>
 
-        <FormControl maxW={'100%'}>
+        <FormControl>
           <FormLabel>Address</FormLabel>
           <Textarea
             name="address"
             id="address"
-            placeholder="Address..."
+            placeholder="USA, CA, Santa Clara"
             size="sm"
             resize={'vertical'}
             border={'none'}
@@ -131,11 +147,11 @@ const AddUserPgae = () => {
           // isLoading={isSubmitting}
           type="submit"
         >
-          Submit
+          Update
         </Button>
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 
-export default AddUserPgae;
+export default SingleUserPage;

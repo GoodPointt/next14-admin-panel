@@ -11,25 +11,46 @@ import {
   NumberInputField,
   NumberInputStepper,
   Select,
+  Text,
   Textarea,
 } from '@chakra-ui/react';
+import Image from 'next/image';
 
-const AddProductPgae = () => {
+const SingleProductPage = () => {
   return (
-    <Box
-      bg={'linear-gradient(to right, #654ea37e, #5f41a553)'}
-      p={5}
-      borderRadius={'10px'}
-      mt={3}
-    >
+    <Flex gap={'50px'} borderRadius={'10px'} mt={3}>
+      <Box
+        flex={1}
+        bg={'linear-gradient(to right, #654ea37e, #5f41a553)'}
+        p={5}
+        borderRadius={'10px'}
+        h={'max-content'}
+      >
+        <Box
+          w={'100%'}
+          h={'300px'}
+          position={'relative'}
+          borderRadius={'10px'}
+          overflow={'hidden'}
+          mb={4}
+        >
+          <Image src="/noproduct.jpg" alt="User avatar" fill />
+        </Box>
+        <Text fontWeight={900} fontSize={'xl'}>
+          John Smith
+        </Text>
+      </Box>
       <Flex
+        flex={3}
         as={'form'}
         action={''}
-        wrap={'wrap'}
-        justify={'space-between'}
+        flexDir={'column'}
         gap={3}
+        bg={'linear-gradient(to right, #654ea37e, #5f41a553)'}
+        p={5}
+        borderRadius={'10px'}
       >
-        <FormControl maxW={'45%'}>
+        <FormControl>
           <FormLabel>Title</FormLabel>
           <Input
             type="text"
@@ -40,7 +61,7 @@ const AddProductPgae = () => {
             fontSize={'xl'}
           />
         </FormControl>
-        <FormControl maxW={'45%'}>
+        <FormControl>
           <FormLabel>Select category</FormLabel>
           <Select
             name="cat"
@@ -59,7 +80,7 @@ const AddProductPgae = () => {
             <option value="kitchen">Kitchen</option>
           </Select>
         </FormControl>
-        <FormControl maxW={'45%'}>
+        <FormControl>
           <FormLabel>Price</FormLabel>
           <NumberInput name="price" defaultValue={1} min={'0'}>
             <NumberInputField
@@ -73,7 +94,7 @@ const AddProductPgae = () => {
             </NumberInputStepper>
           </NumberInput>
         </FormControl>
-        <FormControl maxW={'45%'}>
+        <FormControl>
           <FormLabel>Stock</FormLabel>
           <NumberInput name="stock" defaultValue={1} min={'0'}>
             <NumberInputField
@@ -87,7 +108,7 @@ const AddProductPgae = () => {
             </NumberInputStepper>
           </NumberInput>
         </FormControl>
-        <FormControl maxW={'45%'}>
+        <FormControl>
           <FormLabel>Color</FormLabel>
           <Input
             type="text"
@@ -98,7 +119,7 @@ const AddProductPgae = () => {
             fontSize={'xl'}
           />
         </FormControl>
-        <FormControl maxW={'45%'}>
+        <FormControl>
           <FormLabel>Size</FormLabel>
           <Input
             type="text"
@@ -110,7 +131,7 @@ const AddProductPgae = () => {
           />
         </FormControl>
 
-        <FormControl maxW={'100%'}>
+        <FormControl>
           <FormLabel>Description</FormLabel>
           <Textarea
             name="desc"
@@ -131,11 +152,11 @@ const AddProductPgae = () => {
           // isLoading={isSubmitting}
           type="submit"
         >
-          Submit
+          Update
         </Button>
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 
-export default AddProductPgae;
+export default SingleProductPage;

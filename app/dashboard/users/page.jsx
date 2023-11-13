@@ -81,52 +81,17 @@ const UsersPage = () => {
               <Td>client</Td>
               <Td>active</Td>
               <Td>
-                <Button
-                  variant={'solid'}
-                  bgColor={'green.500'}
-                  color={'white'}
-                  transition={'all 0.3s'}
-                  _hover={{ bgColor: 'green.600' }}
-                >
-                  View
-                </Button>
-                <Button
-                  variant={'solid'}
-                  bgColor={'red.500'}
-                  color={'white'}
-                  transition={'all 0.3s'}
-                  _hover={{ bgColor: 'red.600' }}
-                  ml={3}
-                >
-                  Delete
-                </Button>
-              </Td>
-            </Tr>
-            <Tr>
-              <Td display={'flex'} alignItems="center" gap={2} p={'27px 27px'}>
-                <Image
-                  src="/noavatar.png"
-                  alt="User avatar image"
-                  width="30"
-                  height="30"
-                  style={{ objectFit: 'contain', borderRadius: '50%' }}
-                />
-                <span>John Smith</span>
-              </Td>
-              <Td>js@mail.com</Td>
-              <Td>Oct 29 2023</Td>
-              <Td>client</Td>
-              <Td>active</Td>
-              <Td>
-                <Button
-                  variant={'solid'}
-                  bgColor={'green.500'}
-                  color={'white'}
-                  transition={'all 0.3s'}
-                  _hover={{ bgColor: 'green.600' }}
-                >
-                  View
-                </Button>
+                <Link href={'/dashboard/users/testId'}>
+                  <Button
+                    variant={'solid'}
+                    bgColor={'green.500'}
+                    color={'white'}
+                    transition={'all 0.3s'}
+                    _hover={{ bgColor: 'green.600' }}
+                  >
+                    View
+                  </Button>
+                </Link>
                 <Button
                   variant={'solid'}
                   bgColor={'red.500'}
@@ -155,15 +120,56 @@ const UsersPage = () => {
               <Td>client</Td>
               <Td>active</Td>
               <Td>
+                <Link href={'/dashboard/users/testId'}>
+                  <Button
+                    variant={'solid'}
+                    bgColor={'green.500'}
+                    color={'white'}
+                    transition={'all 0.3s'}
+                    _hover={{ bgColor: 'green.600' }}
+                  >
+                    View
+                  </Button>
+                </Link>
                 <Button
                   variant={'solid'}
-                  bgColor={'green.500'}
+                  bgColor={'red.500'}
                   color={'white'}
                   transition={'all 0.3s'}
-                  _hover={{ bgColor: 'green.600' }}
+                  _hover={{ bgColor: 'red.600' }}
+                  ml={3}
                 >
-                  View
+                  Delete
                 </Button>
+              </Td>
+            </Tr>
+            <Tr>
+              <Td display={'flex'} alignItems="center" gap={2} p={'27px 27px'}>
+                <Image
+                  src="/noavatar.png"
+                  alt="User avatar image"
+                  width="30"
+                  height="30"
+                  style={{ objectFit: 'contain', borderRadius: '50%' }}
+                />
+                <span>John Smith</span>
+              </Td>
+              <Td>js@mail.com</Td>
+              <Td>Oct 29 2023</Td>
+              <Td>client</Td>
+              <Td>active</Td>
+              <Td>
+                <Link href={'/dashboard/users/testId'}>
+                  <Button
+                    variant={'solid'}
+                    bgColor={'green.500'}
+                    color={'white'}
+                    transition={'all 0.3s'}
+                    _hover={{ bgColor: 'green.600' }}
+                  >
+                    View
+                  </Button>
+                </Link>
                 <Button
                   variant={'solid'}
                   bgColor={'red.500'}
