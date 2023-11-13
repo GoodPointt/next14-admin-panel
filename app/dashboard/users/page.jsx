@@ -1,5 +1,7 @@
 import Pagination from '@/app/ui/dashboard/pagination/Pagination';
 import Search from '@/app/ui/dashboard/search/Search';
+import { fetchUsers } from '@/utils/data';
+import { formatMongoDate } from '@/utils/helpers/formatDate';
 import {
   Box,
   Button,
@@ -17,13 +19,18 @@ import Link from 'next/link';
 
 import { IoAddCircleOutline } from 'react-icons/io5';
 
-const UsersPage = () => {
+const UsersPage = async ({ searchParams }) => {
+  const query = searchParams?.query || '';
+  const page = searchParams?.page || 1;
+
+  const { users, count } = await fetchUsers(query, page);
+
   return (
     <Box
       mt={3}
       bg={'linear-gradient(to right, #654ea37e, #5f41a553)'}
       p={5}
-      borderRadius={'27px'}
+      borderRadius={'10px'}
     >
       <Flex align={'center'} justify={'space-between'}>
         <Search placeholder={'Search for a user...'} />
@@ -65,127 +72,61 @@ const UsersPage = () => {
             </Tr>
           </Thead>
           <Tbody>
-            <Tr>
-              <Td display={'flex'} alignItems="center" gap={2} p={'27px 27px'}>
-                <Image
-                  src="/noavatar.png"
-                  alt="User avatar image"
-                  width="30"
-                  height="30"
-                  style={{ objectFit: 'contain', borderRadius: '50%' }}
-                />
-                <span>John Smith</span>
-              </Td>
-              <Td>js@mail.com</Td>
-              <Td>Oct 29 2023</Td>
-              <Td>client</Td>
-              <Td>active</Td>
-              <Td>
-                <Link href={'/dashboard/users/testId'}>
-                  <Button
-                    variant={'solid'}
-                    bgColor={'green.500'}
-                    color={'white'}
-                    transition={'all 0.3s'}
-                    _hover={{ bgColor: 'green.600' }}
+            {users.length > 0 &&
+              users.map((user) => (
+                <Tr key={user._id}>
+                  <Td
+                    display={'flex'}
+                    alignItems="center"
+                    gap={2}
+                    p={'27px 27px'}
                   >
-                    View
-                  </Button>
-                </Link>
-                <Button
-                  variant={'solid'}
-                  bgColor={'red.500'}
-                  color={'white'}
-                  transition={'all 0.3s'}
-                  _hover={{ bgColor: 'red.600' }}
-                  ml={3}
-                >
-                  Delete
-                </Button>
-              </Td>
-            </Tr>
-            <Tr>
-              <Td display={'flex'} alignItems="center" gap={2} p={'27px 27px'}>
-                <Image
-                  src="/noavatar.png"
-                  alt="User avatar image"
-                  width="30"
-                  height="30"
-                  style={{ objectFit: 'contain', borderRadius: '50%' }}
-                />
-                <span>John Smith</span>
-              </Td>
-              <Td>js@mail.com</Td>
-              <Td>Oct 29 2023</Td>
-              <Td>client</Td>
-              <Td>active</Td>
-              <Td>
-                <Link href={'/dashboard/users/testId'}>
-                  <Button
-                    variant={'solid'}
-                    bgColor={'green.500'}
-                    color={'white'}
-                    transition={'all 0.3s'}
-                    _hover={{ bgColor: 'green.600' }}
-                  >
-                    View
-                  </Button>
-                </Link>
-                <Button
-                  variant={'solid'}
-                  bgColor={'red.500'}
-                  color={'white'}
-                  transition={'all 0.3s'}
-                  _hover={{ bgColor: 'red.600' }}
-                  ml={3}
-                >
-                  Delete
-                </Button>
-              </Td>
-            </Tr>
-            <Tr>
-              <Td display={'flex'} alignItems="center" gap={2} p={'27px 27px'}>
-                <Image
-                  src="/noavatar.png"
-                  alt="User avatar image"
-                  width="30"
-                  height="30"
-                  style={{ objectFit: 'contain', borderRadius: '50%' }}
-                />
-                <span>John Smith</span>
-              </Td>
-              <Td>js@mail.com</Td>
-              <Td>Oct 29 2023</Td>
-              <Td>client</Td>
-              <Td>active</Td>
-              <Td>
-                <Link href={'/dashboard/users/testId'}>
-                  <Button
-                    variant={'solid'}
-                    bgColor={'green.500'}
-                    color={'white'}
-                    transition={'all 0.3s'}
-                    _hover={{ bgColor: 'green.600' }}
-                  >
-                    View
-                  </Button>
-                </Link>
-                <Button
-                  variant={'solid'}
-                  bgColor={'red.500'}
-                  color={'white'}
-                  transition={'all 0.3s'}
-                  _hover={{ bgColor: 'red.600' }}
-                  ml={3}
-                >
-                  Delete
-                </Button>
-              </Td>
-            </Tr>
+                    <Image
+                      src={user.img ?? '/noavatar.png'}
+                      alt="User avatar image"
+                      width="30"
+                      height="30"
+                      style={{
+                        objectFit: 'cover',
+                        borderRadius: '50%',
+                        maxHeight: 30,
+                      }}
+                    />
+                    <span>{user.username}</span>
+                  </Td>
+                  <Td>{user.email}</Td>
+                  <Td>{formatMongoDate(user.createdAt)}</Td>
+                  <Td>{user.role}</Td>
+                  <Td>{user.status}</Td>
+                  <Td>
+                    <Link href={`/dashboard/users/${user._id}`}>
+                      <Button
+                        variant={'solid'}
+                        bgColor={'green.500'}
+                        color={'white'}
+                        transition={'all 0.3s'}
+                        _hover={{ bgColor: 'green.600' }}
+                      >
+                        View
+                      </Button>
+                    </Link>
+                    <Button
+                      variant={'solid'}
+                      bgColor={'red.500'}
+                      color={'white'}
+                      transition={'all 0.3s'}
+                      _hover={{ bgColor: 'red.600' }}
+                      ml={3}
+                    >
+                      Delete
+                    </Button>
+                  </Td>
+                </Tr>
+              ))}
           </Tbody>
         </Table>
       </TableContainer>
-      <Pagination />
+      <Pagination count={count} />
     </Box>
   );
 };

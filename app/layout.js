@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
         as="body"
         bg={'linear-gradient(to right, #4776e6, #8e54e9);'}
         color={'white'}
-        className={inter.className}
+        // className={inter.className}
         fontSize={18}
       >
         <Providers>{children}</Providers>
