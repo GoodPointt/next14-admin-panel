@@ -124,10 +124,9 @@ const Sidebar = () => {
           color={'white'}
           _hover={{
             cursor: 'pointer',
-            color: '#bbbbbb',
+            color: 'violet',
             backgroundColor: 'transparent',
-            textShadow:
-              ' #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;',
+            transform: 'translateX(5px)',
           }}
           transition={'all 0.3s'}
           fontSize={'md'}

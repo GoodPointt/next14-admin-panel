@@ -1,6 +1,6 @@
 import Pagination from '@/app/ui/dashboard/pagination/Pagination';
 import Search from '@/app/ui/dashboard/search/Search';
-import { fetchUsers } from '@/utils/data';
+import { fetchUsers } from '@/utils/api/data';
 import { formatMongoDate } from '@/utils/helpers/formatDate';
 import {
   Box,
@@ -74,22 +74,19 @@ const UsersPage = async ({ searchParams }) => {
           <Tbody>
             {users.length > 0 &&
               users.map((user) => (
-                <Tr key={user._id}>
-                  <Td
-                    display={'flex'}
-                    alignItems="center"
-                    gap={2}
-                    p={'27px 27px'}
-                  >
+                <Tr key={user._id} p={'27px 27px'}>
+                  <Td display={'flex'} alignItems="center" gap={2}>
                     <Image
                       src={user.img ?? '/noavatar.png'}
                       alt="User avatar image"
-                      width="30"
-                      height="30"
+                      width="60"
+                      height="60"
                       style={{
                         objectFit: 'cover',
                         borderRadius: '50%',
-                        maxHeight: 30,
+                        height: 60,
+                        width: 60,
+                        display: 'block',
                       }}
                     />
                     <span>{user.username}</span>

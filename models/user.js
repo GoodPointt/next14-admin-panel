@@ -1,3 +1,4 @@
+import { EMAIL_REGEX, PHONE_REGEX } from '@/utils/constants';
 import mongoose from 'mongoose';
 
 const roles = ['client', 'admin'];
@@ -7,19 +8,19 @@ const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      required: true,
-      unique: true,
+      required: [true, 'Username is required'],
       min: 3,
       max: 20,
     },
     email: {
       type: String,
-      required: true,
+      match: [EMAIL_REGEX],
+      required: [true, 'Email is required'],
       unique: true,
     },
     password: {
       type: String,
-      required: true,
+      required: [true, 'Password is required'],
     },
     img: {
       type: String,
@@ -36,12 +37,14 @@ const userSchema = new mongoose.Schema(
     },
     phone: {
       type: String,
+      match: [PHONE_REGEX],
     },
     address: {
       type: String,
     },
   },
   {
+    versionKey: false,
     timestamps: true,
   }
 );

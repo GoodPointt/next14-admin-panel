@@ -12,10 +12,9 @@ const MenuLink = ({ item }) => {
     <ListItem
       key={item.title}
       _hover={{
+        transform: 'translateX(5px)',
         cursor: 'pointer',
-        color: '#bbbbbb',
-        textShadow:
-          ' #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;',
+        color: 'violet',
       }}
       transition={'all 0.3s'}
       color={pathname === item.path && 'violet'}

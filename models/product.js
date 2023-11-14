@@ -6,27 +6,27 @@ const productSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: true,
+      required: [true, 'Title is required'],
       unique: true,
     },
     desc: {
       type: String,
-      required: true,
+      required: [true, 'Description is required'],
     },
     cat: {
       type: String,
       enum: categories,
       default: 'computer',
-      required: true,
+      required: [true, 'Category is required'],
     },
     price: {
       type: Number,
-      required: true,
+      required: [true, 'Price is required'],
       min: 0,
     },
     stock: {
       type: Number,
-      required: true,
+      required: [true, 'Stock is required'],
       min: 0,
     },
     img: {
@@ -41,6 +41,7 @@ const productSchema = new mongoose.Schema(
     },
   },
   {
+    versionKey: false,
     timestamps: true,
   }
 );

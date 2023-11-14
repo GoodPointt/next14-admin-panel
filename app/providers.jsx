@@ -6,7 +6,11 @@ import { ChakraProvider } from '@chakra-ui/react';
 const Providers = ({ children }) => {
   return (
     <CacheProvider>
-      <ChakraProvider>{children}</ChakraProvider>
+      <ChakraProvider
+        toastOptions={{ defaultOptions: { position: 'top-right' } }}
+      >
+        {children}
+      </ChakraProvider>
     </CacheProvider>
   );
 };
