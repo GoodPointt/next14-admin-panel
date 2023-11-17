@@ -1,3 +1,4 @@
+import DeleteForm from '@/app/ui/dashboard/deleteForm/DeleteForm';
 import Pagination from '@/app/ui/dashboard/pagination/Pagination';
 import Search from '@/app/ui/dashboard/search/Search';
 import { fetchProducts } from '@/utils/api/data';
@@ -106,16 +107,11 @@ const ProductsPage = async ({ searchParams }) => {
                         View
                       </Button>
                     </Link>
-                    <Button
-                      variant={'solid'}
-                      bgColor={'red.500'}
-                      color={'white'}
-                      transition={'all 0.3s'}
-                      _hover={{ bgColor: 'red.600' }}
-                      ml={3}
-                    >
-                      Delete
-                    </Button>
+
+                    <DeleteForm
+                      id={product._id.toString()}
+                      variant={'product'}
+                    />
                   </Td>
                 </Tr>
               ))}

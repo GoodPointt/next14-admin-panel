@@ -2,7 +2,7 @@ export const formatMongoDate = (mongoDate) => {
   const dateObject = new Date(mongoDate);
 
   const day = dateObject.getUTCDate();
-  const month = dateObject.getUTCMonth() + 1; // Months are zero-based
+  const month = dateObject.getUTCMonth() + 1;
   const year = dateObject.getUTCFullYear();
 
   const formattedDate = `${day < 10 ? '0' : ''}${day}.${

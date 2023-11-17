@@ -15,7 +15,7 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import React from 'react';
-import SubmitButton from '../submitButton/SubmitButton';
+import SubmitButton from '../../submitButton/SubmitButton';
 import { addProduct } from '@/utils/api/serverActions';
 
 const AddProductForm = () => {
@@ -29,8 +29,6 @@ const AddProductForm = () => {
         title: 'Warning!',
         description: 'Price cannot be less than zero.',
         status: 'warning',
-        duration: 5000,
-        isClosable: false,
       });
     }
 
@@ -39,8 +37,6 @@ const AddProductForm = () => {
         title: 'Warning!',
         description: 'Stock cannot be less than zero.',
         status: 'warning',
-        duration: 5000,
-        isClosable: false,
       });
     }
 
@@ -51,8 +47,6 @@ const AddProductForm = () => {
         title: 'Error!',
         description: result.error,
         status: 'error',
-        duration: 5000,
-        isClosable: false,
       });
     }
 
@@ -60,8 +54,6 @@ const AddProductForm = () => {
       title: 'Success!',
       description: 'Product created successfully.',
       status: 'success',
-      duration: 5000,
-      isClosable: false,
     });
   };
   return (

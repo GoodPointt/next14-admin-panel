@@ -1,7 +1,3 @@
-import Pagination from '@/app/ui/dashboard/pagination/Pagination';
-import Search from '@/app/ui/dashboard/search/Search';
-import { fetchUsers } from '@/utils/api/data';
-import { formatMongoDate } from '@/utils/helpers/formatDate';
 import {
   Box,
   Button,
@@ -16,8 +12,13 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
-
 import { IoAddCircleOutline } from 'react-icons/io5';
+
+import Pagination from '@/app/ui/dashboard/pagination/Pagination';
+import Search from '@/app/ui/dashboard/search/Search';
+import { fetchUsers } from '@/utils/api/data';
+import { formatMongoDate } from '@/utils/helpers/formatDate';
+import DeleteForm from '@/app/ui/dashboard/deleteForm/DeleteForm';
 
 const UsersPage = async ({ searchParams }) => {
   const query = searchParams?.query || '';
@@ -107,16 +108,8 @@ const UsersPage = async ({ searchParams }) => {
                         View
                       </Button>
                     </Link>
-                    <Button
-                      variant={'solid'}
-                      bgColor={'red.500'}
-                      color={'white'}
-                      transition={'all 0.3s'}
-                      _hover={{ bgColor: 'red.600' }}
-                      ml={3}
-                    >
-                      Delete
-                    </Button>
+
+                    <DeleteForm id={user._id.toString()} variant={'user'} />
                   </Td>
                 </Tr>
               ))}

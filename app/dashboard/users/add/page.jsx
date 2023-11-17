@@ -1,4 +1,4 @@
-import AddUserForm from '@/app/ui/dashboard/addUserForm/AddUserForm';
+import AddUserForm from '@/app/ui/dashboard/users/addUserForm/AddUserForm';
 
 import { Box } from '@chakra-ui/react';
 

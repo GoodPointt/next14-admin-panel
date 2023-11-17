@@ -15,7 +15,7 @@ import {
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa';
 import InputMask from 'react-input-mask';
-import SubmitButton from '../submitButton/SubmitButton';
+import SubmitButton from '../../submitButton/SubmitButton';
 import { addUser } from '@/utils/api/serverActions';
 import { useState } from 'react';
 import { EMAIL_REGEX, PHONE_REGEX } from '@/utils/constants';
@@ -33,18 +33,14 @@ const AddUserForm = () => {
         title: 'Warning!',
         description: 'Email incorrenct.',
         status: 'warning',
-        duration: 5000,
-        isClosable: false,
       });
     }
 
-    if (!PHONE_REGEX.test(phone)) {
+    if (phone && !PHONE_REGEX.test(phone)) {
       return toast({
         title: 'Warning!',
         description: 'Phone incorrenct.',
         status: 'warning',
-        duration: 5000,
-        isClosable: false,
       });
     }
 
@@ -55,8 +51,6 @@ const AddUserForm = () => {
         title: 'Error!',
         description: result.error,
         status: 'error',
-        duration: 5000,
-        isClosable: false,
       });
     }
 
@@ -64,8 +58,6 @@ const AddUserForm = () => {
       title: 'Success!',
       description: 'User created successfully.',
       status: 'success',
-      duration: 5000,
-      isClosable: false,
     });
   };
 
@@ -205,18 +197,6 @@ const AddUserForm = () => {
         </FormLabel>
       </FormControl>
 
-      {/* <Button
-        variant={'solid'}
-        bgColor={'green.500'}
-        color={'white'}
-        transition={'all 0.3s'}
-        _hover={{ bgColor: 'green.600' }}
-        type="submit"
-        // isLoading={pending}
-        // isDisabled={pending}
-      >
-        Submit
-      </Button> */}
       <SubmitButton>Submit</SubmitButton>
     </Flex>
   );

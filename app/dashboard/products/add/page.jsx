@@ -1,4 +1,4 @@
-import AddProductForm from '@/app/ui/dashboard/addProductForm/AddProductForm';
+import AddProductForm from '@/app/ui/dashboard/products/addProductForm/AddProductForm';
 import { Box } from '@chakra-ui/react';
 
 const AddProductPgae = () => {

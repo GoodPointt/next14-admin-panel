@@ -26,6 +26,18 @@ export const fetchUsers = async (query, page) => {
   }
 };
 
+export const fetchUser = async (id) => {
+  try {
+    connectToDB();
+    const user = await User.findById(id);
+
+    return user;
+  } catch (error) {
+    console.log(error);
+    throw new Error('Failed to fetch user');
+  }
+};
+
 export const fetchProducts = async (query, page) => {
   const regex = new RegExp(query, 'i');
 
@@ -47,5 +59,17 @@ export const fetchProducts = async (query, page) => {
   } catch (error) {
     console.log(error);
     throw new Error('Failed to fetch products');
+  }
+};
+
+export const fetchProduct = async (id) => {
+  try {
+    connectToDB();
+    const product = await Product.findById(id);
+
+    return product;
+  } catch (error) {
+    console.log(error);
+    throw new Error('Failed to fetch product');
   }
 };
