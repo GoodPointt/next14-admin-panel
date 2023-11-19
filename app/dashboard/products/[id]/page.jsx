@@ -1,5 +1,5 @@
 import UpdateProductForm from '@/app/ui/dashboard/products/updateProductForm/UpdateProductForm';
-import { fetchProduct } from '@/utils/api/data';
+import { fetchProduct } from '@/app/utils/api/data';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 

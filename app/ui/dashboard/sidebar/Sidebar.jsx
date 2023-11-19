@@ -16,6 +16,7 @@ import {
 
 import MenuLink from './menuLink/MenuLink';
 import Image from 'next/image';
+import { signOut } from '@/app/auth';
 
 const menuItems = [
   {

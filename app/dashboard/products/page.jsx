@@ -1,8 +1,8 @@
 import DeleteForm from '@/app/ui/dashboard/deleteForm/DeleteForm';
 import Pagination from '@/app/ui/dashboard/pagination/Pagination';
 import Search from '@/app/ui/dashboard/search/Search';
-import { fetchProducts } from '@/utils/api/data';
-import { formatMongoDate } from '@/utils/helpers/formatDate';
+import { fetchProducts } from '@/app/utils/api/data';
+import { formatMongoDate } from '@/app/utils/helpers/formatDate';
 import {
   Box,
   Button,

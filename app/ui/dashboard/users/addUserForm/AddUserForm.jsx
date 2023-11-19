@@ -16,9 +16,9 @@ import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa';
 import InputMask from 'react-input-mask';
 import SubmitButton from '../../submitButton/SubmitButton';
-import { addUser } from '@/utils/api/serverActions';
+import { addUser } from '@/app/utils/api/serverActions';
 import { useState } from 'react';
-import { EMAIL_REGEX, PHONE_REGEX } from '@/utils/constants';
+import { EMAIL_REGEX, PHONE_REGEX } from '@/app/utils/constants';
 
 const AddUserForm = () => {
   const toast = useToast();

@@ -16,7 +16,7 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import SubmitButton from '../../submitButton/SubmitButton';
-import { addProduct } from '@/utils/api/serverActions';
+import { addProduct } from '@/app/utils/api/serverActions';
 
 const AddProductForm = () => {
   const toast = useToast();

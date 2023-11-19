@@ -1,10 +1,23 @@
 'use server';
-import { User } from '@/models/user';
+import { User } from '@/app/utils/api/models/user';
 import { connectToDB } from './db';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { Product } from '@/models/product';
+import { Product } from '@/app/utils/api/models/product';
 import bcrypt from 'bcrypt';
+import { signIn } from '@/app/auth';
+
+export const authenticate = async (formData) => {
+  const { email, password } = Object.fromEntries(formData);
+
+  try {
+    console.log(email, password);
+    await signIn('credentials', { email, password });
+  } catch (error) {
+    console.log(error);
+    return { error: error.message };
+  }
+};
 
 export const addProduct = async (formData) => {
   const { title, desc, cat, price, stock, img, color, size } =

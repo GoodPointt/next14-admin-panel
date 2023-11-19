@@ -3,7 +3,7 @@
 import { Box, Input, useToast } from '@chakra-ui/react';
 import React from 'react';
 import DeleteButton from '../deleteButton/DeleteButton';
-import { deleteProduct, deleteUser } from '@/utils/api/serverActions';
+import { deleteProduct, deleteUser } from '@/app/utils/api/serverActions';
 
 const DeleteForm = ({ id, variant }) => {
   const toast = useToast();
