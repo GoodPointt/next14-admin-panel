@@ -1,3 +1,5 @@
+console.log(process.env.BASE_URL);
+
 export const authConfig = {
   providers: [],
   pages: {
@@ -11,7 +13,9 @@ export const authConfig = {
         if (isLoggedIn) return true;
         return false;
       } else if (isLoggedIn) {
-        return Response.redirect(new URL('/dashboard', request.nextUrl));
+        return Response.redirect(
+          new URL(`${process.env.BASE_URL}/dashboard`, request.nextUrl)
+        );
       }
       return true;
     },
