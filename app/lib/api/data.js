@@ -1,6 +1,6 @@
-import { User } from '@/app/utils/api/models/user';
+import { User } from '@/app/lib/api/models/user';
 import { connectToDB } from './db';
-import { Product } from '@/app/utils/api/models/product';
+import { Product } from '@/app/lib/api/models/product';
 
 export const fetchUsers = async (query, page) => {
   const regex = new RegExp(query, 'i');

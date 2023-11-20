@@ -1,6 +1,6 @@
 'use client';
 
-import { updateProduct } from '@/app/utils/api/serverActions';
+import { updateProduct } from '@/app/lib/api/actions';
 import {
   Button,
   Flex,

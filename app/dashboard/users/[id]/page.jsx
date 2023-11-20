@@ -1,5 +1,5 @@
 import UpdateUserForm from '@/app/ui/dashboard/users/updateUserForm/UpdateUserForm';
-import { fetchUser } from '@/app/utils/api/data';
+import { fetchUser } from '@/app/lib/api/data';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 

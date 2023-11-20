@@ -1,7 +1,7 @@
 'use client';
 
-import { authenticate } from '@/app/utils/api/serverActions';
-import { EMAIL_REGEX } from '@/app/utils/constants';
+import { MdErrorOutline } from 'react-icons/md';
+
 import {
   Button,
   Flex,
@@ -9,46 +9,27 @@ import {
   FormLabel,
   Heading,
   Input,
-  useToast,
   InputGroup,
   InputRightElement,
+  Box,
+  Text,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { FaEyeSlash } from 'react-icons/fa';
 import SubmitButton from '../dashboard/submitButton/SubmitButton';
+import { useFormState } from 'react-dom';
+import { authenticate } from '@/app/lib/api/actions';
 
 const LoginForm = () => {
-  const toast = useToast();
+  const [state, dispatch] = useFormState(authenticate, undefined);
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
-
-  const clientAction = async (formData) => {
-    const { email, password } = Object.fromEntries(formData);
-
-    if (!EMAIL_REGEX.test(email)) {
-      return toast({
-        title: 'Warning!',
-        description: 'Email incorrenct.',
-        status: 'warning',
-      });
-    }
-
-    const result = await authenticate(formData);
-
-    if (result?.error) {
-      return toast({
-        title: 'Error!',
-        description: result.error,
-        status: 'error',
-      });
-    }
-  };
 
   return (
     <Flex
       as={'form'}
-      action={clientAction}
+      action={dispatch}
       flexDir={'column'}
       gap={5}
       bg={'linear-gradient(to right, #654ea37e, #5f41a553)'}
@@ -95,6 +76,17 @@ const LoginForm = () => {
       </FormControl>
 
       <SubmitButton>Login</SubmitButton>
+
+      <Box display={'flex'} h={8} alignItems={'end'} gap={2}>
+        {state === 'CredentialsSignin' && (
+          <>
+            <MdErrorOutline size={30} color="crimson" />
+            <Text fontSize={20} color={'crimson'}>
+              Invalid credentials
+            </Text>
+          </>
+        )}
+      </Box>
     </Flex>
   );
 };

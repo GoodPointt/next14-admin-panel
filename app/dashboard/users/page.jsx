@@ -16,8 +16,8 @@ import { IoAddCircleOutline } from 'react-icons/io5';
 
 import Pagination from '@/app/ui/dashboard/pagination/Pagination';
 import Search from '@/app/ui/dashboard/search/Search';
-import { fetchUsers } from '@/app/utils/api/data';
-import { formatMongoDate } from '@/app/utils/helpers/formatDate';
+import { fetchUsers } from '@/app/lib/api/data';
+import { formatMongoDate } from '@/app/lib/helpers/formatDate';
 import DeleteForm from '@/app/ui/dashboard/deleteForm/DeleteForm';
 
 const UsersPage = async ({ searchParams }) => {

@@ -1,4 +1,4 @@
-import { EMAIL_REGEX, PHONE_REGEX } from '@/app/utils/constants';
+import { EMAIL_REGEX, PHONE_REGEX } from '@/app/lib/constants';
 import mongoose from 'mongoose';
 
 const roles = ['client', 'admin'];

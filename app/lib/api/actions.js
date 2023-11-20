@@ -1,21 +1,25 @@
 'use server';
-import { User } from '@/app/utils/api/models/user';
+import { User } from '@/app/lib/api/models/user';
 import { connectToDB } from './db';
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
-import { Product } from '@/app/utils/api/models/product';
+import { RedirectType, redirect } from 'next/navigation';
+import { Product } from '@/app/lib/api/models/product';
 import bcrypt from 'bcrypt';
 import { signIn } from '@/app/auth';
 
-export const authenticate = async (formData) => {
+export const authenticate = async (prevState, formData) => {
   const { email, password } = Object.fromEntries(formData);
 
   try {
-    console.log(email, password);
-    await signIn('credentials', { email, password });
+    const user = await signIn('credentials', { email, password });
+    console.log(user);
   } catch (error) {
-    console.log(error);
-    return { error: error.message };
+    if (error.message.includes('CredentialsSignin')) {
+      return 'CredentialsSignin';
+    }
+    if (error.message.includes('NEXT_REDIRECT')) {
+      redirect('/dashboard', RedirectType.push);
+    }
   }
 };
 

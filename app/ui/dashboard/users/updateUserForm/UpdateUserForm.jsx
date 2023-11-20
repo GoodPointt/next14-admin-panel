@@ -14,11 +14,11 @@ import {
   Textarea,
   useToast,
 } from '@chakra-ui/react';
-import { EMAIL_REGEX, PHONE_REGEX } from '@/app/utils/constants';
+import { EMAIL_REGEX, PHONE_REGEX } from '@/app/lib/constants';
 import InputMask from 'react-input-mask';
 import SubmitButton from '@/app/ui/dashboard/submitButton/SubmitButton';
 import { useState } from 'react';
-import { updateUser } from '@/app/utils/api/serverActions';
+import { updateUser } from '@/app/lib/api/actions';
 
 const UpdateUserForm = ({
   id,

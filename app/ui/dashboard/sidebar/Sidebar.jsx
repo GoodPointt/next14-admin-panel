@@ -118,25 +118,34 @@ const Sidebar = () => {
             </ListItem>
           ))}
       </List>
+
       <Flex align={'center'} mt={2}>
-        <Button
-          p={0}
-          variant={'ghost'}
-          color={'white'}
-          _hover={{
-            cursor: 'pointer',
-            color: 'violet',
-            backgroundColor: 'transparent',
-            transform: 'translateX(5px)',
+        <form
+          action={async () => {
+            'use server';
+            await signOut();
           }}
-          transition={'all 0.3s'}
-          fontSize={'md'}
-          fontWeight={400}
-          w={'100%'}
-          justifyContent={'left'}
         >
-          <MdLogout size={30} /> <Text>Logout</Text>
-        </Button>
+          <Button
+            type="submit"
+            p={0}
+            variant={'ghost'}
+            color={'white'}
+            _hover={{
+              cursor: 'pointer',
+              color: 'violet',
+              backgroundColor: 'transparent',
+              transform: 'translateX(5px)',
+            }}
+            transition={'all 0.3s'}
+            fontSize={'md'}
+            fontWeight={400}
+            w={'100%'}
+            justifyContent={'left'}
+          >
+            <MdLogout size={30} /> <Text>Logout</Text>
+          </Button>
+        </form>
       </Flex>
     </Box>
   );
