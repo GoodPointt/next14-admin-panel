@@ -2,7 +2,6 @@
 
 import { updateProduct } from '@/app/lib/api/actions';
 import {
-  Button,
   Flex,
   FormControl,
   FormLabel,
@@ -16,6 +15,7 @@ import {
   Textarea,
   useToast,
 } from '@chakra-ui/react';
+import SubmitButton from '../../submitButton/SubmitButton';
 
 const UpdateProductForm = ({
   id,
@@ -178,9 +178,7 @@ const UpdateProductForm = ({
       </FormControl>
       <Input type="hidden" value={id} name="id" />
 
-      <Button mt={4} colorScheme="teal" type="submit">
-        Update
-      </Button>
+      <SubmitButton>Update</SubmitButton>
     </Flex>
   );
 };

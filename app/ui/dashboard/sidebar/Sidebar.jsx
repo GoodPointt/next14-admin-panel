@@ -16,7 +16,7 @@ import {
 
 import MenuLink from './menuLink/MenuLink';
 import Image from 'next/image';
-import { signOut } from '@/app/auth';
+import { auth, signOut } from '@/app/auth';
 
 const menuItems = [
   {
@@ -81,24 +81,34 @@ const menuItems = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = async () => {
+  const { user } = await auth();
+
   return (
     <Box pos={'sticky'}>
       <Box>
         <Flex align={'center'} gap={3}>
-          <Image
-            src="/noavatar.png"
-            alt="User avatar image"
-            width="50"
-            height="50"
-            style={{ objectFit: 'contain', borderRadius: '50%' }}
-          />
+          <Box display={'flex'} alignItems="center" gap={2}>
+            <Image
+              src={user.img ?? '/noavatar.png'}
+              alt="User avatar image"
+              width="60"
+              height="60"
+              style={{
+                objectFit: 'cover',
+                borderRadius: '50%',
+                height: 60,
+                width: 60,
+                display: 'block',
+              }}
+            />
+          </Box>
           <Box>
             <Text fontSize={'md'} fontWeight={900}>
-              John Smith
+              {user.username}
             </Text>
             <Text fontSize={'sm'} fontWeight={400} color={'whitesmoke'}>
-              Administrator
+              {user.role === 'admin' ? 'Administrator' : 'User'}
             </Text>
           </Box>
         </Flex>
